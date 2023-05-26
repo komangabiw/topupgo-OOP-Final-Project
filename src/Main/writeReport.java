@@ -29,7 +29,7 @@ public class writeReport {
 
     String formattedDate = myDateObj.format(myFormatObj);
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("D:\\report" + ".pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\ASUS\\OneDrive\\Documents\\report" + ".pdf"));
             doc.open();
             Paragraph paragraph1 = new Paragraph("----------------------------------------------------\n");
             Paragraph paragraph2 = new Paragraph("Ringkasan Pesanan\n\n");
@@ -67,7 +67,7 @@ public class writeReport {
                     cek.getString("harga"), cek.getString("pilihanTopup"), cek.getString("pilihanPembayaran")};
                 
                 int parseID = Integer.parseInt(id);
-                FileInputStream in = new FileInputStream("C:\\Users\\anoth\\Desktop\\historyTransaction.xlsx");
+                FileInputStream in = new FileInputStream("C:\\Users\\ASUS\\OneDrive\\Documents\\historyTransaction.xlsx");
                 Workbook wb = WorkbookFactory.create(in);
                 Sheet s = wb.getSheet("transaction");
                 for (int i = 1; i <= arrayUpdate.length; i++){
@@ -76,7 +76,7 @@ public class writeReport {
                     Cell c  = r.getCell(4 + i);
                     c = r.createCell(4 + i);
                     c.setCellValue(arrayUpdate[i - 1]);
-                    FileOutputStream out = new FileOutputStream("C:\\Users\\anoth\\Desktop\\historyTransaction.xlsx");
+                    FileOutputStream out = new FileOutputStream("C:\\Users\\ASUS\\OneDrive\\Documents\\historyTransaction.xlsx");
                     wb.write(out);
                 }
             }

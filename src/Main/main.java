@@ -262,6 +262,11 @@ public class main extends javax.swing.JFrame {
         loginButton.setText("Masuk");
         loginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginButton.setOpaque(true);
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -289,7 +294,7 @@ public class main extends javax.swing.JFrame {
                     .addComponent(mainLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(tagline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bahasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         mainMenu.setBackground(new java.awt.Color(40, 0, 49));
@@ -475,8 +480,6 @@ public class main extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Beli !");
 
-        inputMail.setBackground(new java.awt.Color(255, 255, 255));
-        inputMail.setForeground(new java.awt.Color(0, 0, 0));
         inputMail.setText("   Email");
         inputMail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -665,8 +668,6 @@ public class main extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Masukkan USER ID");
 
-        userID.setBackground(new java.awt.Color(255, 255, 255));
-        userID.setForeground(new java.awt.Color(0, 0, 0));
         userID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userID.setText("User ID");
         userID.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -683,8 +684,6 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        zoneID.setBackground(new java.awt.Color(255, 255, 255));
-        zoneID.setForeground(new java.awt.Color(0, 0, 0));
         zoneID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zoneID.setText("Zone ID (4 Digit)");
         zoneID.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -922,7 +921,7 @@ public class main extends javax.swing.JFrame {
         listGameLayout.setVerticalGroup(
             listGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listGameLayout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 527, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(listGameLayout.createSequentialGroup()
                 .addComponent(bannerListGame, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -953,9 +952,6 @@ public class main extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Butuh Bantuan?");
-
-        inputMessage.setBackground(new java.awt.Color(255, 255, 255));
-        inputMessage.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel41.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
@@ -1084,7 +1080,7 @@ public class main extends javax.swing.JFrame {
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1392,6 +1388,8 @@ public class main extends javax.swing.JFrame {
 
     private void creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditActionPerformed
         // TODO add your handling code here:
+        projectIcon4 ok = new projectIcon4();
+        ok.setVisible(true);
     }//GEN-LAST:event_creditActionPerformed
 
     private void sendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendMessageActionPerformed
@@ -1580,6 +1578,12 @@ public class main extends javax.swing.JFrame {
     private void topupButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topupButton5ActionPerformed
         cekTopup();
     }//GEN-LAST:event_topupButton5ActionPerformed
+
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        // TODO add your handling code here:
+        projectIcon1 login = new projectIcon1();
+       login.setVisible(true);
+    }//GEN-LAST:event_loginButtonMouseClicked
 
     /**
      * @param args the command line arguments

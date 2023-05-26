@@ -30,7 +30,7 @@ public class main extends javax.swing.JFrame {
         inputMessage.setVisible(false);
         jLabel41.setVisible(false);
         getContentPane().setBackground(new Color(125, 125, 255));
-        slideshow1.initSlideshow(new SlideShow.Slide1(), new SlideShow.Slide2(), new SlideShow.Slide3(), new SlideShow.Slide4());
+        slideshow1.initSlideshow(new SlideShow.Slide1(), new SlideShow.Slide2(), new SlideShow.Slide3(), new SlideShow.Slide4(), new SlideShow.Slide5());
     }
     //paket global  variabel
     Desktop browser = Desktop.getDesktop();

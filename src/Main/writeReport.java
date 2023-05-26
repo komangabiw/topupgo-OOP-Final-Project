@@ -21,8 +21,7 @@ import org.apache.poi.ss.usermodel.*;
  */
 public class writeReport {
     
-    public static void writePDF(){
-    String path = "D:\\";
+    public static void writePDF(String topup, String userID, String metodePembayaran, String totalPembayaran){
     com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
     LocalDateTime myDateObj = LocalDateTime.now();
     System.out.println("Before formatting: " + myDateObj);
@@ -30,16 +29,16 @@ public class writeReport {
 
     String formattedDate = myDateObj.format(myFormatObj);
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path + "" + "satu" + ".pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("D:\\report" + ".pdf"));
             doc.open();
             Paragraph paragraph1 = new Paragraph("----------------------------------------------------\n");
             Paragraph paragraph2 = new Paragraph("Ringkasan Pesanan\n\n");
-            Paragraph paragraph3 = new Paragraph("Mobile Legends: Bang Bang 11 Diamonds + 1 Bonus\n\n");
-            Paragraph paragraph4 = new Paragraph("User ID                         :   sd\n");
+            Paragraph paragraph3 = new Paragraph(topup + "\n\n");
+            Paragraph paragraph4 = new Paragraph("User ID                         :  " + userID + "\n");
             Paragraph paragraph5 = new Paragraph("Tanggal pemesanan    :  " + formattedDate + "\n");
-            Paragraph paragraph6 = new Paragraph("Metode Pembayaran   :   ds\n");
+            Paragraph paragraph6 = new Paragraph("Metode Pembayaran   :   " + metodePembayaran + "\n");
             Paragraph paragraph7 = new Paragraph("Status Pembayaran     :	  Sudah di process\n");
-            Paragraph paragraph8 = new Paragraph("Total Pembayaran       :   Rp. 3.330\n");
+            Paragraph paragraph8 = new Paragraph("Total Pembayaran       :   " + totalPembayaran + "\n");
             Paragraph paragraph9 = new Paragraph("Butuh bantuan? kunjungi Pusat Bantuan kami.\n");
             
             doc.add(paragraph1);

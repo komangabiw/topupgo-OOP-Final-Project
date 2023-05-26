@@ -4,6 +4,7 @@
  */
 package MainDialog;
 
+import Main.writeReport;
 import java.util.*;
 
 /**
@@ -31,6 +32,7 @@ public class codeQR extends javax.swing.JDialog {
                 if(counterClose > 0){
                     counterClose--;
                 }else{
+                        writeReport.WriteExcel();
                         Main.main.closeTopup();
                         MainDialog.ConfirmTopup.close();
                         timer.cancel();

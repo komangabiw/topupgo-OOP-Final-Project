@@ -10,12 +10,12 @@ package SlideShow;
  *
  * @author anoth
  */
-public class Slide1 extends javax.swing.JPanel {
+public class Slide4 extends javax.swing.JPanel {
 
     /**
      * Creates new form Slide1
      */
-    public Slide1() {
+    public Slide4() {
         initComponents();
     }
 

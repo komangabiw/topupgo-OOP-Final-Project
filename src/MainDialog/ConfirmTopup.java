@@ -4,6 +4,7 @@
  */
 package MainDialog;
 
+import Main.writeReport;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 
@@ -262,6 +263,7 @@ public class ConfirmTopup extends javax.swing.JDialog {
                 Main.mainConnectionDB.pst.setString(3, hargaToInteger);
                 Main.mainConnectionDB.pst.setString(4, topupOption.getText());
                 Main.mainConnectionDB.pst.setString(5, paymentMethod.getText());
+                writeReport.writePDF(topupOption.getText(), id.getText(), paymentMethod.getText(), hargaToInteger);
                 Main.mainConnectionDB.pst.executeUpdate();
                 System.out.println("Insert data transaksi berhasil !");
             }catch(HeadlessException | SQLException ex){

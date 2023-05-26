@@ -10,12 +10,12 @@ package SlideShow;
  *
  * @author anoth
  */
-public class Slide4 extends javax.swing.JPanel {
+public class Slide1 extends javax.swing.JPanel {
 
     /**
      * Creates new form Slide1
      */
-    public Slide4() {
+    public Slide1() {
         initComponents();
     }
 
@@ -31,7 +31,7 @@ public class Slide4 extends javax.swing.JPanel {
         pictureBox1 = new SlideShow.PictureBox();
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/banner/banner7.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/banner/banner4.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -45,7 +45,9 @@ public class Slide4 extends javax.swing.JPanel {
         pictureBox1.setLayout(pictureBox1Layout);
         pictureBox1Layout.setHorizontalGroup(
             pictureBox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pictureBox1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pictureBox1Layout.setVerticalGroup(
             pictureBox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +67,7 @@ public class Slide4 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-      
+       
     }//GEN-LAST:event_jLabel1MouseClicked
 
 

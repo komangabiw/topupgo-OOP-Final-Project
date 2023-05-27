@@ -646,7 +646,7 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="jButton11" pref="148" max="32767" attributes="0"/>
+                                              <Component id="jButton11" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="hargatopup" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>

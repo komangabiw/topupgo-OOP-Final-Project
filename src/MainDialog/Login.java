@@ -22,6 +22,8 @@ public class Login extends javax.swing.JDialog {
         initComponents();
     }
     
+    
+    
     public boolean cekUsername(String usernameRegist){
         String sqlcon = "select * from user";
                 
@@ -112,6 +114,11 @@ public class Login extends javax.swing.JDialog {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Lupa Password ?");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 290, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/project3.png"))); // NOI18N
@@ -178,6 +185,15 @@ public class Login extends javax.swing.JDialog {
         dispose();
         login.setVisible(true);
     }//GEN-LAST:event_BackloginActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        MainDialog.ForgetPassword lupa = new MainDialog.ForgetPassword(null, true);
+        dispose();
+        lupa.setVisible(true);
+        
+       
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments

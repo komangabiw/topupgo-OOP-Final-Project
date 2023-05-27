@@ -26,7 +26,7 @@ public class LoginRegister extends javax.swing.JDialog {
         loginDialog.dispose();
     }
     
-    //paket close di threads
+    //paket close 
     public static MainDialog.Register registerDialog;
     public void setRegister(MainDialog.Register confirmRegist){
         registerDialog = confirmRegist;

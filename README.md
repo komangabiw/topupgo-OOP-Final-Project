@@ -1,4 +1,4 @@
 # topupgo
 final project 
 
-project ini dibuat untuk asikin aja
+project ini dibuat untuk ...

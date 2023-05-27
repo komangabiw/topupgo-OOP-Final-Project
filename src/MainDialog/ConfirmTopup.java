@@ -14,8 +14,8 @@ import java.sql.SQLException;
  */
 public class ConfirmTopup extends javax.swing.JDialog {  
     //pake close di threads
-    public static MainDialog.codeQR dialogQR;
-    public void setCodeQRDialogue(MainDialog.codeQR baru){
+    public static MainDialog.CodeQR dialogQR;
+    public void setCodeQRDialogue(MainDialog.CodeQR baru){
         dialogQR = baru;
     }
     public static void close(){
@@ -57,6 +57,7 @@ public class ConfirmTopup extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         topupOption = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         label1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -134,6 +135,9 @@ public class ConfirmTopup extends javax.swing.JDialog {
         topupOption.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         topupOption.setForeground(new java.awt.Color(51, 51, 51));
 
+        username.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(204, 204, 204));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,14 +161,18 @@ public class ConfirmTopup extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(namaGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(paymentMethod, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(topupOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(topupOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(namaGame, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 30, Short.MAX_VALUE)))
-                .addGap(44, 44, 44))
+                        .addGap(0, 48, Short.MAX_VALUE)))
+                .addGap(26, 26, 26))
             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
@@ -179,9 +187,11 @@ public class ConfirmTopup extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(namaGame, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(namaGame, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,14 +279,27 @@ public class ConfirmTopup extends javax.swing.JDialog {
             }catch(HeadlessException | SQLException ex){
                 System.out.println("Errornya adalah " + ex.getMessage());
             }
-        
-        codeQR qr = new codeQR(null, true);
-        if(Main.main.bahasa.getText().equalsIgnoreCase("   id")){
-            MainDialog.codeQR.label1.setText("Pindai kode QR");
-            MainDialog.codeQR.label2.setText("Selesaikan pembayaran dalam");
+        if(username.getText().equalsIgnoreCase("masuk") || username.getText().equalsIgnoreCase("login")){
+            
         }else{
-            MainDialog.codeQR.label1.setText("Scan QR code");
-            MainDialog.codeQR.label2.setText("Complete payment in"); 
+            try{ 
+                String user = "update transaksi set username = '"+ username.getText() +"'where id = (SELECT max(id) FROM transaksi)";
+                Main.mainConnectionDB.pst = Main.mainConnectionDB.con.prepareStatement(user);
+                Main.mainConnectionDB.pst.executeUpdate();
+                System.out.println("Insert username berhasil !");
+            }catch(HeadlessException | SQLException ex){
+                System.out.println("Errornya adalah " + ex.getMessage());
+            }
+        }
+        
+        
+        CodeQR qr = new CodeQR(null, true);
+        if(Main.main.bahasa.getText().equalsIgnoreCase("   id")){
+            MainDialog.CodeQR.label1.setText("Pindai kode QR");
+            MainDialog.CodeQR.label2.setText("Selesaikan pembayaran dalam");
+        }else{
+            MainDialog.CodeQR.label1.setText("Scan QR code");
+            MainDialog.CodeQR.label2.setText("Complete payment in"); 
         }
         setCodeQRDialogue(qr);
         qr.setVisible(true);
@@ -351,5 +374,6 @@ public class ConfirmTopup extends javax.swing.JDialog {
     public static javax.swing.JLabel paymentMethod;
     public static javax.swing.JLabel price;
     public static javax.swing.JLabel topupOption;
+    public static javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,5 +50,14 @@ public class passEncrypt {
         byte[] securePassword = hash(password.toCharArray(), salt.getBytes());  
         finalval = Base64.getEncoder().encodeToString(securePassword);  
         return finalval;  
-    }  
+    }
+    public static String generateOTP(int n){
+        String chrs = "0123456789";
+        String otp = "";
+        while (n-->0){
+            int index = (int)(Math.random()*10);
+            otp+=chrs.charAt(index);
+        }
+        return otp;
+    }
 }

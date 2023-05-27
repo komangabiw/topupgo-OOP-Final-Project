@@ -29,7 +29,10 @@ public class main extends javax.swing.JFrame {
         sendMessage.setVisible(false);
         inputMessage.setVisible(false);
         jLabel41.setVisible(false);
+        
         getContentPane().setBackground(new Color(125, 125, 255));
+        //this.setBackground(Color.yellow);
+        //this.setBackground(new Color(1, 1, 1, 0));
         slideshow1.initSlideshow(new SlideShow.Slide1(), new SlideShow.Slide2(), new SlideShow.Slide3(), new SlideShow.Slide4(), new SlideShow.Slide5());
     }
     //paket global  variabel
@@ -91,7 +94,7 @@ public class main extends javax.swing.JFrame {
         jLabel41.setVisible(false);
         userID.setText("User ID");
         zoneID.setText("Zone ID (4 Digit)");
-        inputMail.setText("   Email");
+        inputMail.setText("Email");
         pilihantopup.setText("");
         payment.setText("");
         hargatopup.setText("");
@@ -107,6 +110,16 @@ public class main extends javax.swing.JFrame {
     }
     public static void closeTopup(){
         topupDialog.dispose();
+    }
+    public static void sendBukti(){
+        if(inputMail.getText().equalsIgnoreCase("Email")){
+            System.out.println("Bukti Pembayaran ada di lokal");
+            System.out.println(inputMail.getText());
+        }else{
+           Main.sendEmail.sendEmailwithAttachment(inputMail.getText());
+            System.out.println(inputMail.getText()); 
+        }
+        
     }
         
     public static boolean cekTombolTopup(){
@@ -153,7 +166,8 @@ public class main extends javax.swing.JFrame {
         mainLogo = new javax.swing.JLabel();
         tagline = new javax.swing.JLabel();
         bahasa = new javax.swing.JLabel();
-        loginButton = new javax.swing.JLabel();
+        buttonLogin = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         mainMenu = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -255,16 +269,29 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        loginButton.setBackground(new java.awt.Color(98, 66, 252));
-        loginButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
-        loginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginButton.setText("Masuk");
-        loginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginButton.setOpaque(true);
-        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonLogin.setBackground(new java.awt.Color(98, 66, 252));
+        buttonLogin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        buttonLogin.setForeground(new java.awt.Color(255, 255, 255));
+        buttonLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buttonLogin.setText("Masuk");
+        buttonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLogin.setOpaque(true);
+        buttonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginButtonMouseClicked(evt);
+                buttonLoginMouseClicked(evt);
+            }
+        });
+
+        exitIcon.setBackground(new java.awt.Color(40, 0, 49));
+        exitIcon.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        exitIcon.setForeground(new java.awt.Color(255, 255, 255));
+        exitIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/transp35.png"))); // NOI18N
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitIcon.setOpaque(true);
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
             }
         });
 
@@ -279,8 +306,10 @@ public class main extends javax.swing.JFrame {
                 .addComponent(tagline, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bahasa, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exitIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         headerLayout.setVerticalGroup(
@@ -288,13 +317,16 @@ public class main extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(mainLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(tagline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bahasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainMenu.setBackground(new java.awt.Color(40, 0, 49));
@@ -439,7 +471,7 @@ public class main extends javax.swing.JFrame {
                             .addGroup(mainMenuLayout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addComponent(slideKananBanner)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         mainMenuLayout.setVerticalGroup(
             mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,7 +512,7 @@ public class main extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Beli !");
 
-        inputMail.setText("   Email");
+        inputMail.setText("Email");
         inputMail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 inputMailFocusGained(evt);
@@ -1140,7 +1172,7 @@ public class main extends javax.swing.JFrame {
             jButton11.setText("Buy Now");
             jLabel17.setText("Buy!");
             credit.setText("Credits");
-            loginButton.setText("Login");
+            buttonLogin.setText("Login");
             jLabel18.setText("Optional: If you want proof of payment, please fill in the email address");
             
         }else{
@@ -1158,7 +1190,7 @@ public class main extends javax.swing.JFrame {
             jButton11.setText("Beli Sekarang");
             jLabel17.setText("Beli!");
             credit.setText("Kredit");
-            loginButton.setText("Masuk");
+            buttonLogin.setText("Masuk");
             jLabel18.setText("Optional: Jika anda ingin bukti pembayaran, harap mengisi alamat emailnya");          
         }
     }//GEN-LAST:event_bahasaMousePressed
@@ -1388,8 +1420,8 @@ public class main extends javax.swing.JFrame {
 
     private void creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditActionPerformed
         // TODO add your handling code here:
-        projectIcon4 ok = new projectIcon4();
-        ok.setVisible(true);
+//        projectIcon4 ok = new projectIcon4();
+//        ok.setVisible(true);
     }//GEN-LAST:event_creditActionPerformed
 
     private void sendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendMessageActionPerformed
@@ -1453,6 +1485,12 @@ public class main extends javax.swing.JFrame {
         }else{
            MainDialog.ConfirmTopup.id.setText(userID.getText());
         }
+        if(buttonLogin.getText().equalsIgnoreCase("masuk") || buttonLogin.getText().equalsIgnoreCase("login")){
+            MainDialog.ConfirmTopup.username.setText(buttonLogin.getText());
+        }else{
+            MainDialog.ConfirmTopup.username.setText(buttonLogin.getText().substring(4));
+        }
+        
         MainDialog.ConfirmTopup.topupOption.setText(pilihantopup.getText());
         MainDialog.ConfirmTopup.paymentMethod.setText(payment.getText());
         MainDialog.ConfirmTopup.price.setText(hargatopup.getText());
@@ -1523,7 +1561,7 @@ public class main extends javax.swing.JFrame {
         }
         if(!cekEmail){
             JOptionPane.showMessageDialog(this, "Domain tidak mengandung '@' ");
-            inputMail.setText("   Email");
+            inputMail.setText("Email");
         }
     }//GEN-LAST:event_inputMailFocusLost
 
@@ -1532,7 +1570,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_topupButton1ActionPerformed
 
     private void inputMailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputMailFocusGained
-        if(inputMail.getText().equals("   Email")){
+        if(inputMail.getText().equals("Email")){
             inputMail.setText("");
         }
     }//GEN-LAST:event_inputMailFocusGained
@@ -1579,11 +1617,26 @@ public class main extends javax.swing.JFrame {
         cekTopup();
     }//GEN-LAST:event_topupButton5ActionPerformed
 
-    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+    private void buttonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLoginMouseClicked
         // TODO add your handling code here:
-        projectIcon1 login = new projectIcon1();
-       login.setVisible(true);
-    }//GEN-LAST:event_loginButtonMouseClicked
+        if(buttonLogin.getText().equalsIgnoreCase("masuk") || buttonLogin.getText().equalsIgnoreCase("login")){
+            MainDialog.LoginRegister login = new MainDialog.LoginRegister(this, true);
+            login.setVisible(true);  
+        }
+    }//GEN-LAST:event_buttonLoginMouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+        // TODO add your handling code here:
+        if(buttonLogin.getText().charAt(0) == ('H') || buttonLogin.getText().charAt(0) == ('L')){
+            exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/transp35.png")));                       
+            buttonLogin.setBackground(new Color(98,66,252));
+            if(jLabel17.getText().equalsIgnoreCase("Beli !")){
+                buttonLogin.setText("Masuk");
+            }else{
+                buttonLogin.setText("Login");
+            }
+        }
+    }//GEN-LAST:event_exitIconMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1623,9 +1676,11 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel bahasa;
     private javax.swing.JLabel bannerListGame;
+    public static javax.swing.JLabel buttonLogin;
     private javax.swing.JToggleButton callUs;
     private javax.swing.JToggleButton credit;
     private javax.swing.JLabel detectGame;
+    public static javax.swing.JLabel exitIcon;
     private javax.swing.JPanel footer;
     public static javax.swing.JLabel hargatopup;
     private javax.swing.JPanel header;
@@ -1669,7 +1724,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel linkIG;
     private javax.swing.JLabel linkTT;
     public static javax.swing.JPanel listGame;
-    private javax.swing.JLabel loginButton;
     private javax.swing.JLabel mainLogo;
     public static javax.swing.JPanel mainMenu;
     private javax.swing.JPanel mainPanel;

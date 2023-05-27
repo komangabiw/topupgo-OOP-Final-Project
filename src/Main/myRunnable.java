@@ -13,19 +13,20 @@ public class myRunnable implements Runnable{
     public void run() {
         for(int i = 30; i > 0; i--) {
             System.out.println("Thread #2 : " + i);
-            MainDialog.codeQR.timeLimit.setText(Integer.toString(i));            
+            MainDialog.CodeQR.timeLimit.setText(Integer.toString(i));            
             try {
             	Thread.sleep(1000);
             } catch (InterruptedException e) {
             	e.printStackTrace();
             }
-	}
-            MainDialog.codeQR.label2.setText("");
+	}   
+            Main.main.sendBukti();
+            MainDialog.CodeQR.label2.setText("");
             System.out.println("Thread #1 is finished");
         if(Main.main.bahasa.getText().equalsIgnoreCase("   id")){
-            MainDialog.codeQR.timeLimit.setText("Waktu habis");
+            MainDialog.CodeQR.timeLimit.setText("Waktu habis");
         }else{
-            MainDialog.codeQR.timeLimit.setText("Times out"); 
+            MainDialog.CodeQR.timeLimit.setText("Times out"); 
         }  
     }
 }

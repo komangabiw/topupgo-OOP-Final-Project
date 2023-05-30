@@ -6,7 +6,7 @@ package MainDialog;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class LoginRegister extends javax.swing.JDialog {
 

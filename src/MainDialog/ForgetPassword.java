@@ -61,10 +61,10 @@ public class ForgetPassword extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         femail.setBorder(null);
-        getContentPane().add(femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 190, 40));
+        getContentPane().add(femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, 40));
 
         fkode.setBorder(null);
-        getContentPane().add(fkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 190, 40));
+        getContentPane().add(fkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 200, 30));
 
         fkirim.setContentAreaFilled(false);
         fkirim.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +73,9 @@ public class ForgetPassword extends javax.swing.JDialog {
             }
         });
         getContentPane().add(fkirim, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 140, 90, 30));
-        getContentPane().add(fpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 220, 30));
+
+        fpassword.setBorder(null);
+        getContentPane().add(fpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 200, 30));
 
         freset.setContentAreaFilled(false);
         freset.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +83,7 @@ public class ForgetPassword extends javax.swing.JDialog {
                 fresetActionPerformed(evt);
             }
         });
-        getContentPane().add(freset, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 410, 190, 50));
+        getContentPane().add(freset, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 410, 230, 60));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

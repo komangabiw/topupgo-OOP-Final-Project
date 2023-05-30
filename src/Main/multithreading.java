@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class multithreading extends Thread{
     @Override

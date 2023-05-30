@@ -12,7 +12,7 @@ import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class sendEmail {
     static String userName = "codashopxwinter@gmail.com";

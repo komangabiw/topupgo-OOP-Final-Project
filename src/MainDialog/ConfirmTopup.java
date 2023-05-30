@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class ConfirmTopup extends javax.swing.JDialog {  
     //pake close di threads

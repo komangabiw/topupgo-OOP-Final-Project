@@ -13,7 +13,7 @@ import javax.crypto.spec.PBEKeySpec;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class passEncrypt {
     //paket variabel enkrip   

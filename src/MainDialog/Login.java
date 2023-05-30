@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class Login extends javax.swing.JDialog {
 
@@ -21,8 +21,6 @@ public class Login extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-    
     
     public boolean cekUsername(String usernameRegist){
         String sqlcon = "select * from user";

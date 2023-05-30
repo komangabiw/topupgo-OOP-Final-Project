@@ -6,7 +6,7 @@ package Main;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class myRunnable implements Runnable{
     @Override

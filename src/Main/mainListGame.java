@@ -6,7 +6,7 @@ package Main;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class mainListGame {
     private String gameName; 
@@ -24,6 +24,7 @@ public class mainListGame {
     }
     
     public mainListGame(){
+        System.out.println("Call");
     }
     
     public void setGameName(String gameName){

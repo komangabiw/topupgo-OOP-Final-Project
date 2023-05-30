@@ -28,14 +28,9 @@ public class main extends javax.swing.JFrame {
         listGame.setVisible(false);
         sendMessage.setVisible(false);
         inputMessage.setVisible(false);
-        jLabel41.setVisible(false);
-        
-        getContentPane().setBackground(new Color(125, 125, 255));
-        //this.setBackground(Color.yellow);
-        //this.setBackground(new Color(1, 1, 1, 0));
         slideshow1.initSlideshow(new SlideShow.Slide1(), new SlideShow.Slide2(), new SlideShow.Slide3(), new SlideShow.Slide4(), new SlideShow.Slide5());
-    }
-    //paket global  variabel
+        }
+    //Global  variabel buat direct link
     Desktop browser = Desktop.getDesktop();
     
     public void cekTopup(){
@@ -45,7 +40,6 @@ public class main extends javax.swing.JFrame {
         for (AbstractButton button : listToogleButton) {
             tombolke++;
             if(button.isSelected()){ 
-                System.out.println(button.isSelected());
                 cekTopup = true;
                 break;
             }
@@ -1174,7 +1168,6 @@ public class main extends javax.swing.JFrame {
             credit.setText("Credits");
             buttonLogin.setText("Login");
             jLabel18.setText("Optional: If you want proof of payment, please fill in the email address");
-            
         }else{
             bahasa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/idFlag.png")));
             bahasa.setText("   ID");
@@ -1419,13 +1412,8 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_zoneIDFocusLost
 
     private void creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditActionPerformed
-        // TODO add your handling code here:
-//        projectIcon4 ok = new projectIcon4();
-//        ok.setVisible(true
-
-          MainDialog.Credits credit = new MainDialog.Credits(this, true);
-          credit.setVisible(true);
-                  
+        MainDialog.Credits credit = new MainDialog.Credits(this, true);
+        credit.setVisible(true);
     }//GEN-LAST:event_creditActionPerformed
 
     private void sendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendMessageActionPerformed
@@ -1511,8 +1499,6 @@ public class main extends javax.swing.JFrame {
                 cekzoneID = false;
             }
         }
-        System.out.println(cekuserID);
-        System.out.println(cekzoneID);
         if(detectGame.getText().equals("ml")){
             if(userID.getText().equals("User ID")){
                 JOptionPane.showMessageDialog(this, "Anda belum mengisi User ID");
@@ -1622,7 +1608,6 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_topupButton5ActionPerformed
 
     private void buttonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLoginMouseClicked
-        // TODO add your handling code here:
         if(buttonLogin.getText().equalsIgnoreCase("masuk") || buttonLogin.getText().equalsIgnoreCase("login")){
             MainDialog.LoginRegister login = new MainDialog.LoginRegister(this, true);
             login.setVisible(true);  
@@ -1630,7 +1615,6 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLoginMouseClicked
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-        // TODO add your handling code here:
         if(buttonLogin.getText().charAt(0) == ('H') || buttonLogin.getText().charAt(0) == ('L')){
             exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/transp35.png")));                       
             buttonLogin.setBackground(new Color(98,66,252));

@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class mainConnectionDB {
     public static Connection con;

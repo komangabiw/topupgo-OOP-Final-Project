@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author anoth
+ * @author TopUpGo
  */
 public class Register extends javax.swing.JDialog {
 

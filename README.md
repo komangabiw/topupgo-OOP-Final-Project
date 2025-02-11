@@ -1,5 +1,7 @@
 # topupgo - OOP Final Project
 
+![Uploading Screenshot 2025-02-11 at 10.58.55.png…]()
+
 This repository contains a collection of Java programs developed while learning object-oriented-programming concepts at Yarsi University. These projects demonstrate fundamental skills in problem-solving, algorithm implementation, and Java programming syntax.
 
 ## About Our Learning Journey
